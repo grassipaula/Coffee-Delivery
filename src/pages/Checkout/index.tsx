@@ -1,5 +1,13 @@
+import { Navigation } from "../Home/components/Navigation";
+import { Cart } from "./components/Cart";
+import { Form } from "./components/Form";
+
 export function Checkout() {
   return (
-    <h1>Checkout</h1>
+    <>
+    <Navigation />
+    <Form />
+    <Cart />
+    </>
   )
 }
