@@ -8,7 +8,7 @@ export const NavigationContainer = styled.header`
   width: 100%;
   height: 104px;
   padding: 32px 160px;
-  gap: 820px; 
+  gap: 51.25rem; 
 `
 
 export const LocationAndCart = styled.div`
