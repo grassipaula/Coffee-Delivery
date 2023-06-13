@@ -5,21 +5,19 @@ export const CatalogTitle = styled.div`
   align-items: center;
 
   height: 42px;
- 
-    h2 {
-      font-family: 'Baloo 2', monospace;
-      color: ${(props) => props.theme['base-subtitle']};
-      font-size: 32px;
-      font-weight: 800;
-    }
+  
+  font-family: 'Baloo 2', monospace;
+  color: ${(props) => props.theme['base-subtitle']};
+  font-size: 32px;
+  font-weight: 800;
+  
   `
 
-   export const FilterContainer = styled.div`
+   export const FilterBarContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
     
-
     width: auto;
     height: 25px;
     padding: 0px;

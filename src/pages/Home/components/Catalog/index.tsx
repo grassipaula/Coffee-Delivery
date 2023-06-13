@@ -1,33 +1,29 @@
-import { Product } from "../Product";
-import { CatalogContainer, CatalogHeader, CatalogTitle, FilterContainer, ProductsGrid } from "./styles";
+import { CoffeeType, Product } from "../Product";
+import { useState } from 'react'
+import { coffees } from "./CoffeesList";
+
+import { CatalogContainer, CatalogHeader, CatalogTitle, FilterBarContainer, ProductsGrid } from "./styles";
 
 export function Catalog() {
+const [activeFilter, setActiveFilter] = useState<CoffeeType>();
+const filteredCoffees = coffees.filter((coffee) => activeFilter ? coffee.type?.includes(activeFilter) : true)
+
   return (
     <CatalogContainer>
       <CatalogHeader>
-        <CatalogTitle><h2>Nossos cafés</h2></CatalogTitle>
+        <CatalogTitle>Nossos cafés</CatalogTitle>
 
-        {/* Criar e estilizar o filtro */}
-        <FilterContainer>
-          <button>TRADICIONAL</button>
-          <button>ESPECIAL</button>
-          <button>COM LEITE</button>
-          <button>ALCOÓLICO</button>
-          <button>GELADO</button>
-        </FilterContainer>  
+        <FilterBarContainer>
+          <button className={activeFilter === CoffeeType.Tradicional ? 'active' : ''} onClick={() => setActiveFilter(activeFilter === CoffeeType.Tradicional ? undefined : CoffeeType.Tradicional)}>TRADICIONAL</button>
+          <button className={activeFilter === CoffeeType.ComLeite ? 'active' : ''} onClick={() => setActiveFilter(activeFilter === CoffeeType.ComLeite ? undefined : CoffeeType.ComLeite)}>COM LEITE</button>
+          <button className={activeFilter === CoffeeType.Gelado ? 'active' : ''} onClick={() => setActiveFilter(activeFilter === CoffeeType.Gelado ? undefined : CoffeeType.Gelado)}>GELADO</button>
+          <button className={activeFilter === CoffeeType.Especial ? 'active' : ''} onClick={() => setActiveFilter(activeFilter === CoffeeType.Especial ? undefined : CoffeeType.Especial)}>ESPECIAL</button>
+          <button className={activeFilter === CoffeeType.Alcoolico ? 'active' : ''} onClick={() => setActiveFilter(activeFilter === CoffeeType.Alcoolico ? undefined : CoffeeType.Alcoolico)}>ALCOÓLICO</button>
+        </FilterBarContainer>  
       </CatalogHeader>  
 
-      {/* Criar e estilizar produtos */}
-
       <ProductsGrid>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {filteredCoffees.map((coffeeItem) => <Product {...coffeeItem}/>)}
       </ProductsGrid>
     </CatalogContainer>
   )

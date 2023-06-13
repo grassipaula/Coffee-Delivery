@@ -1,21 +1,37 @@
 import AddToCart from '../../../../assets/AddToCart.svg'
-import Expresso from '../../../../assets/Expresso.svg' 
-import { AddToCartContainer, ProductContainer } from './styles'
+import { AddToCartContainer, FilterContainer, FilterTags, ProductContainer } from './styles'
 
-export function Product() {
+{/* Mudar id para obrigatório depois */}
+export interface ProductInterface {
+  id?: number,
+  image: string,
+  type?: CoffeeType[],
+  name: string,
+  description?: string,
+  price: number,
+}
+
+export enum CoffeeType {
+  Tradicional = 'TRADICIONAL',
+  Especial = 'ESPECIAL',
+  ComLeite = 'COM LEITE',
+  Alcoolico = 'ALCOÓLICO',
+  Gelado = 'GELADO',
+  Default = '',
+}
+
+export function Product({ image, type, name, description, price }: ProductInterface) {
   return (
       <ProductContainer>
-        <img src={Expresso} alt="expresso" />
+        <img src={image} alt="" />
+        <FilterContainer>{type?.map((item) => <FilterTags> {item} </FilterTags>)}</FilterContainer> 
 
-        {/* FAZER UM FILTRO */}
-        <label htmlFor="">TRADICIONAL</label> 
-
-        <h3>Expresso Tradicional</h3>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <h3>{name}</h3>
+        <p>{description}</p>
 
         {/* Componente de quantidade e adição ao carrinho */}
         <AddToCartContainer>
-          <h4>R$</h4><h2>9,90</h2> 
+          <h4>R$</h4><h2>{price}</h2> 
           <input value=" - 1 + "/>  
           <button><img src={AddToCart} alt="add to cart" /></button>
         </AddToCartContainer>

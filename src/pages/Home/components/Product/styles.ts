@@ -104,3 +104,33 @@ export const AddToCartContainer = styled.div`
         background-color: transparent;
       }
 `
+
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  gap: 4px;
+`
+
+export const FilterTags = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 21px;
+  padding: 8px;
+  margin-top: 12px; // remover 
+  gap: 4px;
+  border-radius: 20px;
+  white-space: nowrap;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 130%;
+
+  background-color: ${(props) => props.theme['yellow-light']};
+  color: ${(props) => props.theme['yellow-dark']};    
+`
