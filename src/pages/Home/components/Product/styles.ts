@@ -9,34 +9,16 @@ export const ProductContainer = styled.div`
 
   width: 256px;
   height: 310px;
-  margin: 12px;
+  margin: 12px 12px 20px 12px;
+  padding: 20px;
 
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 6px 36px;
 
-        /* Arrumar estilização label */
-    label {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      width: 35%;
-      height: 21px;
-      padding: 8px;
-      margin-top: 12px;
-      gap: 4px;
-      border-radius: 20px;
-      white-space: nowrap;
-
-      font-family: 'Roboto', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      line-height: 130%;
-    
-      background-color: ${(props) => props.theme['yellow-light']};
-      color: ${(props) => props.theme['yellow-dark']};
-    }
+    img {
+     width: 120px;
+     height: 120px;
+  }
 
     h2 {
       font-family: 'Baloo 2', monospace;
@@ -47,6 +29,8 @@ export const ProductContainer = styled.div`
     }
 
     h3 {
+      margin: 8px;
+
       font-family: 'Baloo 2', monospace;
       font-size: 20px;
       font-weight: 700;
@@ -63,6 +47,8 @@ export const ProductContainer = styled.div`
     }
 
     p {
+      margin-bottom: 33px;
+
       font-family: 'Roboto', sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -89,20 +75,15 @@ export const ProductContainer = styled.div`
     }  
 `
 
-export const AddToCartContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+export const PriceContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
 
-    width: 208px;
-    height: 38px;
-    gap: 10px;
-
-      button {
-        border: 1px solid transparent;
-        background-color: transparent;
-      }
+  width: 67px;
+  height: 31px;
+  gap: 4px; 
+  margin-right: 15px;
 `
 
 export const FilterContainer = styled.div`
@@ -121,7 +102,8 @@ export const FilterTags = styled.div`
   width: 100%;
   height: 21px;
   padding: 8px;
-  margin-top: 12px; // remover 
+  margin-top: 12px;
+  margin-bottom: 8px;
   gap: 4px;
   border-radius: 20px;
   white-space: nowrap;
@@ -133,4 +115,26 @@ export const FilterTags = styled.div`
 
   background-color: ${(props) => props.theme['yellow-light']};
   color: ${(props) => props.theme['yellow-dark']};    
+`
+
+export const AddToCartContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 208px;
+    height: 38px;
+    gap: 8px;
+    margin-bottom: 40px;
+
+      img {
+        max-width: 38px;
+        max-height: 38px;
+      }
+
+      button {
+        border: 1px solid transparent;
+        background-color: transparent;
+      }
 `

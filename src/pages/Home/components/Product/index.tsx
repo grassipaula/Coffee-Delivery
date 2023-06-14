@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import AddToCart from '../../../../assets/AddToCart.svg'
-import { AddToCartContainer, FilterContainer, FilterTags, ProductContainer } from './styles'
+import { AddToCartContainer, FilterContainer, FilterTags, PriceContainer, ProductContainer } from './styles'
+import { AddCoffeeToCart } from '../AddToCart'
 
 {/* Mudar id para obrigatório depois */}
 export interface ProductInterface {
@@ -21,6 +23,8 @@ export enum CoffeeType {
 }
 
 export function Product({ image, type, name, description, price }: ProductInterface) {
+  const [quantity, setQuantity] = useState(0)
+
   return (
       <ProductContainer>
         <img src={image} alt="" />
@@ -31,8 +35,15 @@ export function Product({ image, type, name, description, price }: ProductInterf
 
         {/* Componente de quantidade e adição ao carrinho */}
         <AddToCartContainer>
-          <h4>R$</h4><h2>{price}</h2> 
-          <input value=" - 1 + "/>  
+          <PriceContainer>
+            <h4>R$</h4><h2>{price.toLocaleString('pt-BR', {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2
+            })}</h2>
+          </PriceContainer> 
+          
+          <AddCoffeeToCart quantity={quantity} setQuantity={setQuantity} />
+
           <button><img src={AddToCart} alt="add to cart" /></button>
         </AddToCartContainer>
       </ProductContainer>

@@ -15,16 +15,8 @@ import Mocaccino from '../../../../../assets/Mocaccino.svg';
 import { CoffeeType } from '../../Product';
 
 export const coffees = [
-  {
+    {
     id: 1,
-    image: Americano,
-    type: [CoffeeType.Tradicional],
-    name: 'Expresso Americano',
-    description: 'Expresso diluído, menos intenso que o tradicional', 
-    price: 8.90,
-  },
-  {
-    id: 2,
     image: Arabe,
     type: [CoffeeType.Especial],
     name: 'Árabe',
@@ -32,7 +24,7 @@ export const coffees = [
     price: 13.90,
   },
   {
-    id: 3,
+    id: 2,
     image: CafeComLeite,
     type: [CoffeeType.Tradicional, CoffeeType.ComLeite],
     name: 'Café com Leite',
@@ -40,7 +32,7 @@ export const coffees = [
     price: 10.90,
   },
     {
-    id: 4,
+    id: 3,
     image: Capuccino,
     type: [CoffeeType.Tradicional, CoffeeType.ComLeite],
     name: 'Capuccino',
@@ -48,7 +40,7 @@ export const coffees = [
     price: 13.90,
   },
   {
-    id: 5,
+    id: 4,
     image: ChocolateQuente,
     type: [CoffeeType.Especial, CoffeeType.ComLeite],
     name: 'Chocolate Quente',
@@ -56,7 +48,7 @@ export const coffees = [
     price: 13.90,
   },
   {
-    id: 6,
+    id: 5,
     image: Cubano,
     type: [CoffeeType.Especial, CoffeeType.Alcoolico, CoffeeType.Gelado],
     name: 'Cubano',
@@ -64,12 +56,20 @@ export const coffees = [
     price: 16.90,
   },
   {
-    id: 7,
+    id: 6,
     image: Expresso,
     type: [CoffeeType.Tradicional],
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos', 
     price: 9.90,
+  },
+  {
+    id: 7,
+    image: Americano,
+    type: [CoffeeType.Tradicional],
+    name: 'Expresso Americano',
+    description: 'Expresso diluído, menos intenso que o tradicional', 
+    price: 8.90,
   },
   {
     id: 8,
