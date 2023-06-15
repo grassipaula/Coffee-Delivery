@@ -1,24 +1,8 @@
 import styled from "styled-components";
 
-export const AddCoffeeToCartContainer = styled.div`
+export const AddCoffeeQuantityContainer = styled.div`
   display: flex;
   
-`
-
-export const DecreaseQuantity = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-
-    color: ${(props) => props.theme['purple']};
-    background-color: ${(props) => props.theme['base-button']};
-
-    :hover {
-    color: ${(props) => props.theme['purple-dark']};
-    }
 `
 
 export const QuantityChange = styled.div`
@@ -32,6 +16,7 @@ export const QuantityChange = styled.div`
 
     :hover {
     color: ${(props) => props.theme['purple-dark']};
+    cursor: pointer;
     }
 
     :first-child {

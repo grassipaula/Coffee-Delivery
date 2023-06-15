@@ -102,7 +102,9 @@ export const FilterTags = styled.div`
   width: 100%;
   height: 21px;
   padding: 8px;
-  margin-top: 12px;
+
+  /* Arrumar espaçamento do componente, margin top */
+  margin-top: 10px;
   margin-bottom: 8px;
   gap: 4px;
   border-radius: 20px;
@@ -123,18 +125,40 @@ export const AddToCartContainer = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 208px;
+    width: 100%;
     height: 38px;
-    gap: 8px;
-    margin-bottom: 40px;
-
-      img {
-        max-width: 38px;
-        max-height: 38px;
-      }
+    gap: 10px;
+    margin-bottom: 20px;
 
       button {
         border: 1px solid transparent;
         background-color: transparent;
-      }
+    }      
+`
+
+export const AddToCart = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+  gap: 8px;
+
+    img {
+      width: 38px;
+      height: 38px;
+      padding: 8px;
+      border-radius: 6px;
+
+      background-color: ${(props) => props.theme['purple-dark']};
+      border: 1px solid black;
+    }
+
+    img:hover {
+      background-color: ${(props) => props.theme['purple']};
+      border: transparent;
+      cursor: pointer;
+    }
 `

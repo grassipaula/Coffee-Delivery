@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import AddToCart from '../../../../assets/AddToCart.svg'
-import { AddToCartContainer, FilterContainer, FilterTags, PriceContainer, ProductContainer } from './styles'
-import { AddCoffeeToCart } from '../AddToCart'
+import { useContext, useState } from 'react'
+import { AddToCartContainer, FilterContainer, FilterTags, PriceContainer, ProductContainer, AddToCart } from './styles'
+import { CoffeeQuantity } from '../CoffeeQuantity'
+import { CartContentContext } from '../../../../context/CartContext'
 
-{/* Mudar id para obrigatório depois */}
+import ShoppingCart from '../../../../assets/ShoppingCart.svg'
+
 export interface ProductInterface {
-  id?: number,
+  id: number,
   image: string,
   type?: CoffeeType[],
   name: string,
@@ -22,10 +23,11 @@ export enum CoffeeType {
   Default = '',
 }
 
-export function Product({ image, type, name, description, price }: ProductInterface) {
+export function Product({ id, image, type, name, description, price }: ProductInterface) {
   const [quantity, setQuantity] = useState(0)
+  const { addItemToCart } = useContext(CartContentContext)
 
-  return (
+   return (
       <ProductContainer>
         <img src={image} alt="" />
         <FilterContainer>{type?.map((item) => <FilterTags> {item} </FilterTags>)}</FilterContainer> 
@@ -33,7 +35,6 @@ export function Product({ image, type, name, description, price }: ProductInterf
         <h3>{name}</h3>
         <p>{description}</p>
 
-        {/* Componente de quantidade e adição ao carrinho */}
         <AddToCartContainer>
           <PriceContainer>
             <h4>R$</h4><h2>{price.toLocaleString('pt-BR', {
@@ -42,9 +43,9 @@ export function Product({ image, type, name, description, price }: ProductInterf
             })}</h2>
           </PriceContainer> 
           
-          <AddCoffeeToCart quantity={quantity} setQuantity={setQuantity} />
+          <CoffeeQuantity quantity={quantity} setQuantity={setQuantity} />
 
-          <button><img src={AddToCart} alt="add to cart" /></button>
+          <AddToCart onClick={() => addItemToCart({ id, name, image, quantity, price })}><img src={ShoppingCart} alt="add to cart" /></AddToCart>
         </AddToCartContainer>
       </ProductContainer>
   )

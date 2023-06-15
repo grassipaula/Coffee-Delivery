@@ -37,6 +37,7 @@ export const CatalogTitle = styled.div`
 
       &:hover {
         background-color: ${(props) => props.theme['yellow-light']};
+        cursor: pointer;
       }
 
       &:active {
